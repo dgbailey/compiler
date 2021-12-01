@@ -4,10 +4,13 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#define DEBUG_TRACE_EXECUTION
+
 typedef enum {
     OP_RETURN,
     OP_CONSTANT
 } OpCode;
+
 
 
 #endif
