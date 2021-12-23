@@ -1,7 +1,10 @@
 #include "common.h"
 #include "vm.h"
 #include <stdio.h>
+#include "compiler.h"
 #include "debug.h"
+
+
 VM vm;
 //global vm not best practice
 void initVM(){
@@ -36,9 +39,8 @@ static InterpretResult run(){
     #undef READ_CONSTANT
 }
 
- InterpretResult interpret(Chunk* chunk){
-     vm.chunk = chunk;
-     vm.ip = vm.chunk->code;
-     return run();
+ InterpretResult interpret(const char* source){
+    compile(source);
+    return INTERPRET_OK;
  }
  //https://stackoverflow.com/questions/4955198/what-does-dereferencing-a-pointer-mean
